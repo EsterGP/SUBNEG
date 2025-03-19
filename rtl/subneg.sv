@@ -4,22 +4,22 @@ module subneg#( WIDTH = 8)(
     logic clk, rst
     );
 
-reg #(WIDTH = 8) PC(
+register #(WIDTH = 8) PC(
     .clk(clk),
     .rst(rst)
 );
 
-reg #(WIDTH = 8) OP1(
+register #(WIDTH = 8) OP1(
     .clk(clk),
     .rst(rst)
 );
 
-reg #(WIDTH = 8) ACC(
+register #(WIDTH = 8) ACC(
     .clk(clk),
     .rst(rst)
 );
 
-    sub #(WIDTH = 8) SUB(
+sub #(WIDTH = 8) SUB(
     .clk(clk),
     .rst(rst)
 );
