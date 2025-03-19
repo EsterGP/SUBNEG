@@ -1,4 +1,4 @@
-module mux2_1 #(
+module mux #(
     WIDTH = 8
 ) (
     logic [WIDTH-1:0] in1,
