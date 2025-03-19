@@ -19,12 +19,12 @@ reg #(WIDTH = 8) ACC(
     .rst(rst)
 );
 
-alu #(WIDTH = 8) ALU(
+    sub #(WIDTH = 8) SUB(
     .clk(clk),
     .rst(rst)
 );
 
-mux2_1 #(WIDTH = 8) MUX(
+mux #(WIDTH = 8) MUX(
 
 );
     
