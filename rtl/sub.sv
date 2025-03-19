@@ -1,4 +1,4 @@
-module alu #(
+module sub #(
     WIDTH=8
 ) (
     logic [WIDTH-1:0] in1,
