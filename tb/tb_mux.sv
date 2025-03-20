@@ -11,20 +11,20 @@ module tb_mux #(WIDTH = 8);
 
     mux #(8) dut (.in1(in1),.in2(in1),.sel(sel),.out(out));
 
-    always #10 clk = ~clk;
+    always #5 clk = ~clk;
 
     initial begin
         clk = 0;
 
-        #20
-        in1 = 'd10;
-        in2 = 'd20;
-        sel = 0;
+        for (int i = 0; i < 100; i++) begin
 
-        #20
-        in1 = 'd10;
-        in2 = 'd20;
-        sel = 1;
+            in1 = $urandom;  
+            in2 = $urandom; 
+            sel = $urandom; 
+
+            #20;   // delay
+
+        end
 
         #40;
         $stop();
