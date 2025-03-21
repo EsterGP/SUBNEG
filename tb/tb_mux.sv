@@ -9,7 +9,7 @@ module tb_mux #(WIDTH = 8);
     logic clk;
     logic [WIDTH-1:0] out;
 
-    mux #(8) dut (.in1(in1),.in2(in1),.sel(sel),.out(out));
+    mux #(8) dut (.in1(in1),.in2(in2),.sel(sel),.out(out));
 
     always #5 clk = ~clk;
 
