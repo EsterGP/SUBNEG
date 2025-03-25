@@ -1,7 +1,5 @@
-module control #(
-    parameters
-) (
-    ports
+module control(
+    
 );
 
     typedef enum logic[1:0] {E0, E1, E2, E2} typeState;
