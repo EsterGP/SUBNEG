@@ -1,7 +1,9 @@
 timeunit 1ns;
 timeprecision 1ps;
 
-module tb_mux #(WIDTH = 8);
+module tb_mux;
+
+    parameter int WIDTH = 8;
 
     logic [WIDTH-1:0] in1;
     logic [WIDTH-1:0] in2;
@@ -9,7 +11,12 @@ module tb_mux #(WIDTH = 8);
     logic clk;
     logic [WIDTH-1:0] out;
 
-    mux #(8) dut (.in1(in1),.in2(in2),.sel(sel),.out(out));
+    mux #(.WIDTH(WIDTH)) dut (
+        .in1(in1),
+        .in2(in2),
+        .sel(sel),
+        .out(out)
+    );
 
     always #5 clk = ~clk;
 
@@ -20,9 +27,9 @@ module tb_mux #(WIDTH = 8);
 
             in1 = $urandom;  
             in2 = $urandom; 
-            sel = $urandom; 
+            sel = $urandom_range(0,1); 
 
-            #20;   // delay
+            #20;
 
         end
 
