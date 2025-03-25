@@ -1,7 +1,7 @@
 timeunit 1ns;
 timeprecision 1ps;
 
-module subneg#( WIDTH = 8)(
+module subneg #(parameter int WIDTH = 8)(
     logic clk, rst
     );
 
@@ -15,7 +15,7 @@ module subneg#( WIDTH = 8)(
         .rst(rst)
     );
 
-    register #(WIDTH = 8) acc(
+    register #(WIDTH = 8) op2(
         .clk(clk),
         .rst(rst)
     );
