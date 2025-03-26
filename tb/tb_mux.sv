@@ -8,7 +8,7 @@ module tb_mux;
     logic [WIDTH-1:0] in1;
     logic [WIDTH-1:0] in2;
     logic sel;
-    logic clock;
+    logic clk;
     logic [WIDTH-1:0] out;
 
     mux #(.WIDTH(WIDTH)) dut (
@@ -21,7 +21,7 @@ module tb_mux;
     always #5 clk = ~clk;
 
     initial begin
-        clock = 0;
+        clk = 0;
 
         for (int i = 0; i < 100; i++) begin
 

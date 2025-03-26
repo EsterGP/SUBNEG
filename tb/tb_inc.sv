@@ -4,7 +4,7 @@ timeprecision 1ps;
 module tb_inc;
     parameter int WIDTH = 8;
 
-    logic clock;
+    logic clk;
     logic signed [WIDTH-1:0] in;
     logic signed [WIDTH-1:0] out;
 
@@ -13,10 +13,10 @@ module tb_inc;
         .out(out)
     );
 
-    always #5 clock = ~clock;
+    always #5 clk = ~clk;
 
     initial begin
-        clock = 0;
+        clk = 0;
 
         for (int i = 0; i < 100; i++) begin
 
