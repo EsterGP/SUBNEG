@@ -1,3 +1,6 @@
+timeunit 1ns;
+timeprecision 1ps;
+
 module control(
     input logic clk,
     input logic rst,
