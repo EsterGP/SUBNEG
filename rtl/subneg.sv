@@ -10,7 +10,7 @@ module subneg #(parameter int WIDTH = 8)(
     logic [WIDTH-1:0] out_pc;
     logic [WIDTH-1:0] out_inc;
     logic [WIDTH-1:0] out_rom;
-    logic [WIDTH-1:0] out_ram;
+    logic [WIDTH-1:0] out_data;
     logic [WIDTH-1:0] out_op1;
     logic [WIDTH-1:0] out_op2;
     logic [WIDTH-1:0] out_sub;
@@ -27,14 +27,14 @@ module subneg #(parameter int WIDTH = 8)(
     register #(WIDTH = 8) op1(
         .clk(clk),
         .rst(rst),
-        .in(out_ram),
+        .in(out_data),
         .out(out_op1)
     );
 
     register #(WIDTH = 8) op2(
         .clk(clk),
         .rst(rst),
-        .in(out_ram),
+        .in(out_data),
         .out(out_op2)
     );
 
@@ -46,7 +46,7 @@ module subneg #(parameter int WIDTH = 8)(
     );
 
     mux #(WIDTH = 8) mux2_1(
-        .in1(out_ram),
+        .in1(out_data),
         .in2(out_inc),
         .sel(sel_pc),
         .out(out_mux)
@@ -59,15 +59,15 @@ module subneg #(parameter int WIDTH = 8)(
     
     mem_rom rom(
         .clk(clk),
-        .in_pc(out_pc),
-        .out_rom(out_rom)
+        .in(out_pc),
+        .out(out_rom)
     );
 
     mem_data data(
         .clk(clk),
         .in_sub(out_sub),
         .in_rom(out_rom),
-        .out_ram(out_ram)
+        .out(out_data)
     );
 
     control controle(
